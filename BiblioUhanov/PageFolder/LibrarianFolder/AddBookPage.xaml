@@ -1,0 +1,89 @@
+﻿<Page x:Class="BiblioUhanov.PageFolder.LibrarianFolder.AddBookPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:BiblioUhanov.PageFolder.LibrarianFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление книг"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="UniqueCipher"
+                 Grid.Row="1"
+                 materialDesign:HintAssist.Hint="Уникальный шифр"/>
+        
+        <TextBox x:Name="NameBook"
+                 Grid.Row="3"
+                 materialDesign:HintAssist.Hint="Название книги"/>
+
+        <ComboBox x:Name="AuthorCB"
+                 Grid.Row="5"
+                 materialDesign:HintAssist.Hint="Автор"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+               x:Name="Author" Width="30" Height="30" Grid.Row="5" Grid.Column="1"
+               MouseLeftButtonDown="Author_MouseLeftButtonDown"/>
+
+        <TextBox x:Name="YearPublish" 
+                 Grid.Row="1" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Год публикации"/>
+        
+        <ComboBox x:Name="NamePublishingHouseCB"
+                 Grid.Row="7"
+                 materialDesign:HintAssist.Hint="Издательство"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                x:Name="PublishingHouse" Width="30" Height="30" Grid.Row="7" Grid.Column="1"
+               MouseLeftButtonDown="PublishingHouse_MouseLeftButtonDown"/>
+
+        <ComboBox x:Name="NameCityCB"
+                 Grid.Row="9" Height="50"
+                 materialDesign:HintAssist.Hint="Город публикации"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                 x:Name="City" Width="30" Height="30" Grid.Row="9" Grid.Column="1"
+               MouseLeftButtonDown="City_MouseLeftButtonDown"/>
+
+        <TextBox x:Name="CountPage"
+                 Grid.Row="3" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Кол-во страниц"/>
+        
+        <TextBox x:Name="PriceBook"
+                 Grid.Row="5" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Цена книги"/>
+        
+        <TextBox x:Name="NumberOfInstances" 
+                 Grid.Row="7" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Кол-во на складе"/>
+
+        <Button x:Name="AddBookBtn"
+                Click="AddBookBtn_Click"
+                Width="270"
+                Grid.Column="2" Grid.Row="9">
+            <StackPanel Orientation="Horizontal" Width="190" Height="36">
+                <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                                        Width="30" Margin="0,3,0,8"/>
+                <TextBlock Text="Добавить книгу" Style="{DynamicResource ButtonTextBlock}"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

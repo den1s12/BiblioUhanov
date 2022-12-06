@@ -1,0 +1,83 @@
+﻿<Page x:Class="BiblioUhanov.PageFolder.LibrarianFolder.ListBookPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:BiblioUhanov.PageFolder.LibrarianFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Список книг"
+      Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+ 
+        
+        <TextBox x:Name="SearchTb"
+                 materialDesign:HintAssist.Hint="Поиск"
+                 TextChanged="SearchTb_TextChanged"/>
+
+        <DataGrid x:Name="ListBookDG"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  ScrollViewer.CanContentScroll="True"
+                  Grid.Row="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="dgTcIdBook"
+                                    Header="№ п/п"
+                                    Width="110"
+                                    Binding="{Binding IdBook}"/>
+
+                <DataGridTextColumn x:Name="dgTcUniqueCipher"
+                                    Header="Уникальный шифр"
+                                    Width="150"
+                                    Binding="{Binding UniqueCipher}"/>
+
+                <DataGridTextColumn x:Name="dgTcNameBook"
+                                    Header="Название книги"
+                                    Width="150"
+                                    Binding="{Binding NameBook}"/>
+
+                <DataGridTextColumn x:Name="dgTcFIOAuthor"
+                                    Header="Автор"
+                                    Width="150"
+                                    Binding="{Binding FIOAuthor}"/>
+
+                <DataGridTextColumn x:Name="dgTcYearPublish"
+                                    Header="Год публикации"
+                                    Width="150"
+                                    Binding="{Binding YearPublish}"/>
+
+                <DataGridTextColumn x:Name="dgTcNamePublishingHouse"
+                                    Header="Издательство"
+                                    Width="150"
+                                    Binding="{Binding NamePublishingHouse}"/>
+
+                <DataGridTextColumn x:Name="dgTcNameCity"
+                                    Header="Город издания"
+                                    Width="150"
+                                    Binding="{Binding NameCity}"/>
+
+
+                <DataGridTextColumn x:Name="dgTcCountPage"
+                                    Header="Кол-во страниц"
+                                    Width="150"
+                                    Binding="{Binding CountPage}"/>
+
+                <DataGridTextColumn x:Name="dgTcPriceBook"
+                                    Header="Цена книги"
+                                    Width="150"
+                                    Binding="{Binding PriceBook}"/>
+
+                <DataGridTextColumn x:Name="dgTcNumberOfInstances"
+                                    Header="Кол-во на складе"
+                                    Width="150"
+                                    Binding="{Binding NumberOfInstances}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
