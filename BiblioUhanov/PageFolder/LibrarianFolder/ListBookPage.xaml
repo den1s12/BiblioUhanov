@@ -25,6 +25,13 @@
                   IsReadOnly="True"
                   ScrollViewer.CanContentScroll="True"
                   Grid.Row="1">
+            <DataGrid.ContextMenu>
+                <ContextMenu Name="BookCM">
+                    <MenuItem Header="Редактирование" x:Name="EditM" Click="EditM_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Удалить" x:Name="DeleteM" Click="DeleteM_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
 
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="dgTcIdBook"

@@ -42,5 +42,15 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
         {
             dGClass.LoadDg("Select * FROM dbo.ViewBook");
         }
+
+        private void EditM_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteM_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
