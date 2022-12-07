@@ -1,6 +1,7 @@
 ﻿using BiblioUhanov.ClassFolder;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,14 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
     /// </summary>
     public partial class ListBookPage : Page
     {
+        SqlConnection sqlConnection =
+            new SqlConnection(@"Data Source=10.128.14.64\SQLEXPRESS;
+                            Initial Catalog=user158;
+                            User ID=user158;
+                            Password=wsruser158");
+        SqlCommand sqlCommand;
+        SqlDataReader sqlDataReader;
+
         DGClass dGClass;
         public ListBookPage()
         {
@@ -52,7 +61,38 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
 
         private void DeleteM_Click(object sender, RoutedEventArgs e)
         {
+            bool resultMB = MBClass.QuestionMB("Вы действительно хотите " +
+                "удалить книгу?");
 
+            if (resultMB)
+            {
+                if (ListBookDG.SelectedItem == null)
+                {
+                    MBClass.ErrorMB("Вы не выбрали строку");
+                }
+                else
+                {
+                    try
+                    {
+                        sqlConnection.Open();
+                        var IdBook = dGClass.SelectId();
+                        sqlCommand = new SqlCommand("DELETE FROM dbo.[Book]" +
+                            $"Where IdBook={IdBook}", sqlConnection);
+                        sqlCommand.ExecuteNonQuery();
+
+                        MBClass.InfoMB("Книга была удалена");
+                    }
+                    catch (Exception ex)
+                    {
+                        MBClass.ErrorMB(ex);
+                    }
+                    finally
+                    {
+                        sqlConnection.Close();
+                        dGClass.LoadDg("Select * From dbo.ViewBook");
+                    }
+                }
+            }
         }
 
         private void ListBookDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)

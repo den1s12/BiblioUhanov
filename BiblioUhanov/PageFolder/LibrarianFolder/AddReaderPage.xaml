@@ -51,7 +51,7 @@
 
         <ComboBox x:Name="IdAdressCB"
                  Grid.Row="7"
-                 materialDesign:HintAssist.Hint="Адрес"/>
+                 materialDesign:HintAssist.Hint="Индекс"/>
         <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
                 x:Name="AdresCB" Width="30" Height="30" Grid.Row="7" Grid.Column="1"
                MouseLeftButtonDown="AdresCB_MouseLeftButtonDown"/>

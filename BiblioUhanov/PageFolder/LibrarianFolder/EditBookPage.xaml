@@ -79,9 +79,7 @@
                 Click="EditBookBtn_Click"
                 Width="270"
                 Grid.Column="2" Grid.Row="9">
-            <StackPanel Orientation="Horizontal" Width="190" Height="36">
-                <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
-                                        Width="30" Margin="0,3,0,8"/>
+            <StackPanel Orientation="Horizontal" Width="145" Height="36">
                 <TextBlock Text="Изменить книгу" Style="{DynamicResource ButtonTextBlock}"/>
             </StackPanel>
         </Button>

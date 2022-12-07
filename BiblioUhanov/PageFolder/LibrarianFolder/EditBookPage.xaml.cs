@@ -22,42 +22,83 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
     /// </summary>
     public partial class EditBookPage : Page
     {
-        CBClass cB;
         SqlConnection sqlConnection =
-          new SqlConnection(@"Data Source=10.128.14.64\SQLEXPRESS;
+            new SqlConnection(@"Data Source=10.128.14.64\SQLEXPRESS;
                             Initial Catalog=user158;
                             User ID=user158;
                             Password=wsruser158");
-        SqlCommand SqlCommand;
-        SqlDataReader dataReader;
+        SqlCommand sqlCommand;
+        SqlDataReader sqlDataReader;
+        ClassFolder.CBClass cbClass;
+
         public EditBookPage()
         {
             InitializeComponent();
-            cB = new CBClass();
+            cbClass = new ClassFolder.CBClass();
+        }
+        int idAuthor;
+        string lastName;
+        string firstName;
+        string middleName;
+
+        private void SplitFIO()
+        {
+            string fioAuthor = AuthorCB.Text;
+            string[] fioAuthorMass = fioAuthor.Split(new char[] { ' ' });
+            lastName = fioAuthorMass[0];
+            firstName = fioAuthorMass[1];
+            middleName = fioAuthorMass[2];
+        }
+
+        private void ReadIdAuthor()
+        {
+            try
+            {
+                SplitFIO();
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand("Select IdAuthor " +
+                    "From dbo.Author " +
+                    $"Where LastNameAuthor='{lastName}' " +
+                    $"AND FirstNameAuthor='{firstName}' " +
+                    $"OR MiddleNameAuthor='{middleName}'",
+                    sqlConnection);
+                sqlDataReader = sqlCommand.ExecuteReader();
+                sqlDataReader.Read();
+
+                idAuthor = Int32.Parse(sqlDataReader[0].ToString());
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            cB.LoadCityCB(NameCityCB);
-            cB.LoadPublishingHouseCB(NamePublishingHouseCB);
-            cB.LoadFIO(AuthorCB);
+            cbClass.LoadCityCB(NameCityCB);
+            cbClass.LoadPublishingHouseCB(NamePublishingHouseCB);
+            cbClass.LoadFIO(AuthorCB);
             try
             {
                 sqlConnection.Open();
-                SqlCommand = new SqlCommand("Select * from dbo.[Book]" +
+                sqlCommand = new SqlCommand("Select * FROM dbo.Book " +
                     $"Where IdBook = '{VariableClass.IdBook}'",
                     sqlConnection);
-                dataReader = SqlCommand.ExecuteReader();
-                dataReader.Read();
-                UniqueCipher.Text = dataReader[1].ToString();
-                NameBook.Text = dataReader[2].ToString();
-                AuthorCB.SelectedValue = dataReader[3].ToString();
-                NameCityCB.SelectedValue = dataReader[4].ToString();
-                NamePublishingHouseCB.SelectedValue = dataReader[5].ToString();
-                YearPublish.Text = dataReader[6].ToString();
-                CountPage.Text = dataReader[7].ToString();
-                PriceBook.Text = dataReader[8].ToString();
-                NumberOfInstances.Text = dataReader[9].ToString();
+                sqlDataReader = sqlCommand.ExecuteReader();
+                sqlDataReader.Read();
+                UniqueCipher.Text = sqlDataReader[1].ToString();
+                NameBook.Text = sqlDataReader[2].ToString();
+                AuthorCB.SelectedValue = sqlDataReader[3].ToString();
+                NameCityCB.SelectedValue = sqlDataReader[4].ToString();
+                NamePublishingHouseCB.SelectedValue = sqlDataReader[5].ToString();
+                YearPublish.Text = sqlDataReader[6].ToString();
+                CountPage.Text = sqlDataReader[7].ToString();
+                PriceBook.Text = sqlDataReader[8].ToString();
+                NumberOfInstances.Text = sqlDataReader[9].ToString();
 
             }
             catch (Exception ex)
@@ -75,12 +116,12 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
             try
             {
                 sqlConnection.Open();
-                SqlCommand =
+                sqlCommand =
                     new SqlCommand("Update " +
                     "dbo.[Book]" +
                     $"Set UniqueCipher ='{UniqueCipher.Text}'," +
                     $"NameBook ='{NameBook.Text}'," +
-                    $"AuthorCB ='{AuthorCB.SelectedValue.ToString()}'," +
+                    $"IdAuthor ='{idAuthor}'," +
                     $"NameCityCB ='{NameCityCB.SelectedValue}'," +
                     $"NamePublishingHouseCB ='{NamePublishingHouseCB.Text}'," +
                     $"YearPublish ='{YearPublish.Text}', " +
@@ -89,7 +130,7 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
                     $"NumberOfInstances ='{NumberOfInstances.Text}' " +
                     $"Where IdBook ='{VariableClass.IdBook}'",
                     sqlConnection);
-                SqlCommand.ExecuteNonQuery();
+                sqlCommand.ExecuteNonQuery();
                 MBClass.InfoMB($"Книга " +
                     $"{NameBook.Text}" +
                     $"успешно отредактирована");

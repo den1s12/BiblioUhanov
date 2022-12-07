@@ -67,7 +67,7 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
                     $"('{LastNameReaderTB.Text}', '{FirstNameReaderTB.Text}', '{MiddleNameReaderTB.Text}', " +
                     $"'{IdAdressCB.SelectedValue.ToString()}', " +
                     $"'{NumberPhoneHomeTB.Text}', " +
-                    $"'{NumberPhoneWorkTB.Text}', '{DateOfBirthTB.Text}', " +
+                    $"'{NumberPhoneWorkTB.Text}', '{DateOfBirthTB.DataContext}', " +
                     $"'{NumberOfReaderTicketTB.Text}')",
                     sqlConnection);
                 sqlCommand.ExecuteNonQuery();
