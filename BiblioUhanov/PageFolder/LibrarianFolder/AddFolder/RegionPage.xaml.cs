@@ -17,25 +17,25 @@ using System.Windows.Shapes;
 
 namespace BiblioUhanov.PageFolder.LibrarianFolder.AddFolder
 {
-    
-
-    public partial class CityPage : Page
+    /// <summary>
+    /// Логика взаимодействия для RegionPage.xaml
+    /// </summary>
+    public partial class RegionPage : Page
     {
         SqlConnection sqlConnection =
           new SqlConnection(@"Data Source=10.128.14.64\SQLEXPRESS;
                             Initial Catalog=user158;
                             User ID=user158;
                             Password=wsruser158");
-       SqlCommand sqlCommand;
-
-        public CityPage()
+        SqlCommand sqlCommand;
+        public RegionPage()
         {
             InitializeComponent();
         }
 
-        private void AddCityBtn_Click(object sender, RoutedEventArgs e)
+        private void AddRegionBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NameCityTB.Text))
+            if (string.IsNullOrWhiteSpace(NameRegionTB.Text))
 
             {
                 MBClass.ErrorMB("Заполните поле");
@@ -45,12 +45,12 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder.AddFolder
                 try
                 {
                     sqlConnection.Open();
-                    sqlCommand = new SqlCommand("Insert Into dbo.[City] " +
-                        "(NameCity) " +
-                        $"Values ('{NameCityTB.Text}')",
+                    sqlCommand = new SqlCommand("Insert Into dbo.[Region] " +
+                        "(NameRegion) " +
+                        $"Values ('{NameRegionTB.Text}')",
                         sqlConnection);
                     sqlCommand.ExecuteNonQuery();
-                    MBClass.InfoMB($"Город {NameCityTB.Text} " +
+                    MBClass.InfoMB($"Регион {NameRegionTB.Text} " +
                         $"успешно добавлен");
                 }
                 catch (Exception ex)
@@ -64,4 +64,5 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder.AddFolder
             }
         }
     }
+    
 }

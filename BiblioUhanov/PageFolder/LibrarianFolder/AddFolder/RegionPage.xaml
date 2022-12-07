@@ -1,13 +1,13 @@
-﻿<Page x:Class="BiblioUhanov.PageFolder.LibrarianFolder.AddFolder.AuthorPage"
+﻿<Page x:Class="BiblioUhanov.PageFolder.LibrarianFolder.AddFolder.RegionPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:BiblioUhanov.PageFolder.LibrarianFolder.AddFolder"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Добавление автора">
+      Title="Добавление региона">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,27 +27,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="LastNameTB"
-                 Grid.Row="1" Grid.Column="1"
-                 materialDesign:HintAssist.Hint="Фамилия"/>
-        <TextBox x:Name="FirstNameTB"
+
+        <TextBox x:Name="NameRegionTB"
                  Grid.Row="3" Grid.Column="1"
-                 materialDesign:HintAssist.Hint="Имя"/>
-        <TextBox x:Name="MiddleNameTB"
-                 Grid.Row="5" Grid.Column="1"
-                 materialDesign:HintAssist.Hint="Отчество"/>
-        <Button x:Name="AddAuthorBtn"
-                Click="AddAuthorBtn_Click"
+                 materialDesign:HintAssist.Hint="Название региона"/>
+
+        <Button x:Name="AddRegionBtn"
+                Click="AddRegionBtn_Click"
                 Width="270"
                 Grid.Column="1" Grid.Row="7">
             <StackPanel Orientation="Horizontal" Width="190" Height="37">
                 <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
                                         Width="30" Height="30" Margin="0,0,0,10"/>
-                <TextBlock Text="Добавить автора" Style="{DynamicResource ButtonTextBlock}"/>
+                <TextBlock Text="Добавить город" Style="{DynamicResource ButtonTextBlock}"/>
             </StackPanel>
         </Button>
-        <!--<Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
-                x:Name="BackBtn" Width="40" Height="40" Grid.Row="7" Grid.Column="0"
-               HorizontalAlignment="Center"/>-->
     </Grid>
 </Page>

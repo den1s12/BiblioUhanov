@@ -81,6 +81,17 @@
                             </StackPanel>
                         </Button>
 
+                        <Button x:Name="AddReaderBtn"
+                                HorizontalAlignment="Left"
+                                Click="AddReaderBtn_Click" Margin="10,10,0,10" Width="270">
+                            <StackPanel Orientation="Horizontal" Width="203">
+                                <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                                        Width="30" Height="30" Margin="0,0,0,8"/>
+                                <TextBlock Text="Добавить читателя" Style="{DynamicResource ButtonTextBlock}" Width="168"/>
+                            </StackPanel>
+                        </Button>
+                        
+
                     </StackPanel>
                     <Button x:Name="ExitBtn" Width="260"
                             HorizontalAlignment="Left"
@@ -94,6 +105,8 @@
                                        Style="{DynamicResource ButtonTextBlock}"/>
                         </StackPanel>
                     </Button>
+                    
+                    
                 </Grid>
 
                 <Grid Grid.Column="1">

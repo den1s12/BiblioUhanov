@@ -30,7 +30,7 @@ namespace BiblioUhanov
 
         private void CloseIm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            MBClass.ExitMB();
         }
 
         private void ListBook_Click(object sender, RoutedEventArgs e)
@@ -40,7 +40,10 @@ namespace BiblioUhanov
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -56,6 +59,11 @@ namespace BiblioUhanov
         private void AddExemplarBtn_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PageFolder.LibrarianFolder.AddExemplarPage());
+        }
+
+        private void AddReaderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PageFolder.LibrarianFolder.AddReaderPage());
         }
     }
 }

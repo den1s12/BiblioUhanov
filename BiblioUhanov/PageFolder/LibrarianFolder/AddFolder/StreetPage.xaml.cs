@@ -17,25 +17,25 @@ using System.Windows.Shapes;
 
 namespace BiblioUhanov.PageFolder.LibrarianFolder.AddFolder
 {
-    
-
-    public partial class CityPage : Page
+    /// <summary>
+    /// Логика взаимодействия для StreetPage.xaml
+    /// </summary>
+    public partial class StreetPage : Page
     {
         SqlConnection sqlConnection =
           new SqlConnection(@"Data Source=10.128.14.64\SQLEXPRESS;
                             Initial Catalog=user158;
                             User ID=user158;
                             Password=wsruser158");
-       SqlCommand sqlCommand;
-
-        public CityPage()
+        SqlCommand sqlCommand;
+        public StreetPage()
         {
             InitializeComponent();
         }
 
-        private void AddCityBtn_Click(object sender, RoutedEventArgs e)
+        private void AddStreetBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NameCityTB.Text))
+            if (string.IsNullOrWhiteSpace(NameStreetTB.Text))
 
             {
                 MBClass.ErrorMB("Заполните поле");
@@ -45,13 +45,13 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder.AddFolder
                 try
                 {
                     sqlConnection.Open();
-                    sqlCommand = new SqlCommand("Insert Into dbo.[City] " +
-                        "(NameCity) " +
-                        $"Values ('{NameCityTB.Text}')",
+                    sqlCommand = new SqlCommand("Insert Into dbo.[Street] " +
+                        "(NameStreet) " +
+                        $"Values ('{NameStreetTB.Text}')",
                         sqlConnection);
                     sqlCommand.ExecuteNonQuery();
-                    MBClass.InfoMB($"Город {NameCityTB.Text} " +
-                        $"успешно добавлен");
+                    MBClass.InfoMB($"Улица {NameStreetTB.Text} " +
+                        $"успешно добавлена");
                 }
                 catch (Exception ex)
                 {

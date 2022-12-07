@@ -1,0 +1,89 @@
+﻿<Page x:Class="BiblioUhanov.PageFolder.LibrarianFolder.AddFolder.AdresPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BiblioUhanov.PageFolder.LibrarianFolder.AddFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление адреса"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="IndexAdresTB"
+                 Grid.Row="1"
+                 materialDesign:HintAssist.Hint="Индекс"/>
+
+        <ComboBox x:Name="IdRegionCB"
+                 Grid.Row="3"
+                 materialDesign:HintAssist.Hint="Регион"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+               x:Name="AddRegionBtn" Width="30" Height="30" Grid.Row="3" Grid.Column="1"
+               MouseLeftButtonDown="AddRegionBtn_MouseLeftButtonDown"/>
+
+        <ComboBox x:Name="IdCityCB"
+                 Grid.Row="5"
+                 materialDesign:HintAssist.Hint="Город"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+               x:Name="AddCityBtn" Width="30" Height="30" Grid.Row="5" Grid.Column="1"
+               MouseLeftButtonDown="AddCityBtn_MouseLeftButtonDown"/>
+
+        <ComboBox x:Name="IdStreetCB" 
+                 Grid.Row="7"
+                 materialDesign:HintAssist.Hint="Улица"/>
+        <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                x:Name="AddStreetBtn" Width="30" Height="30" Grid.Row="7" Grid.Column="1"
+               MouseLeftButtonDown="AddStreetBtn_MouseLeftButtonDown"/>
+
+        <TextBox x:Name="HouseTB"
+                 Grid.Row="1" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Дом"/>
+       
+
+        <!--<ComboBox x:Name="NameCityCB"
+                 Grid.Row="9" Height="50"
+                 materialDesign:HintAssist.Hint="Город публикации"/>-->
+        <!--<Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                 x:Name="City" Width="30" Height="30" Grid.Row="9" Grid.Column="1"
+               MouseLeftButtonDown="City_MouseLeftButtonDown"/>-->
+
+        <TextBox x:Name="FrameTB"
+                 Grid.Row="3" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Корпус"/>
+
+        <TextBox x:Name="ApartmentTB"
+                 Grid.Row="5" Grid.Column="2"
+                 materialDesign:HintAssist.Hint="Квартира"/>
+
+        <Button x:Name="AddAdresBtn"
+                Click="AddAdresBtn_Click"
+                Width="270"
+                Grid.Column="2" Grid.Row="9">
+            <StackPanel Orientation="Horizontal" Width="190" Height="36">
+                <Image Source="/BiblioUhanov;component/ResourceFolder/ImageFolder/Add.png"
+                                        Width="30" Margin="0,3,0,8"/>
+                <TextBlock Text="Добавить адрес" Style="{DynamicResource ButtonTextBlock}"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

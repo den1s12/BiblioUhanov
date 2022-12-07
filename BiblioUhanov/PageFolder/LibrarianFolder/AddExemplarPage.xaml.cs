@@ -28,7 +28,6 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
                             User ID=user158;
                             Password=wsruser158");
         SqlCommand sqlCommand;
-        SqlDataReader sqlDataReader;
         ClassFolder.CBClass cbClass;
 
         public AddExemplarPage()
@@ -54,7 +53,7 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
                     sqlCommand = new SqlCommand("Insert Into dbo.[Exemplar] " +
                         "(IdBook, UniqueInventoryNumber, Placement) " +
                         $"Values" +
-                        $"'{BookCB.SelectedValue.ToString()}'," +
+                        $"('{BookCB.SelectedValue.ToString()}'," +
                         $"'{UniqueInventoryNumberTB.Text}'," +
                         $"'{PlacementTB.Text}')",
                         sqlConnection);

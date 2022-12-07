@@ -72,6 +72,9 @@
     <Compile Include="PageFolder\LibrarianFolder\AddExemplarPage.xaml.cs">
       <DependentUpon>AddExemplarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\LibrarianFolder\AddFolder\AdresPage.xaml.cs">
+      <DependentUpon>AdresPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\LibrarianFolder\AddFolder\AuthorPage.xaml.cs">
       <DependentUpon>AuthorPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,18 @@
     </Compile>
     <Compile Include="PageFolder\LibrarianFolder\AddFolder\PublishingHousePage.xaml.cs">
       <DependentUpon>PublishingHousePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\LibrarianFolder\AddFolder\RegionPage.xaml.cs">
+      <DependentUpon>RegionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\LibrarianFolder\AddFolder\StreetPage.xaml.cs">
+      <DependentUpon>StreetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\LibrarianFolder\AddReaderPage.xaml.cs">
+      <DependentUpon>AddReaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\LibrarianFolder\EditBookPage.xaml.cs">
+      <DependentUpon>EditBookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\LibrarianFolder\ListBookPage.xaml.cs">
       <DependentUpon>ListBookPage.xaml</DependentUpon>
@@ -95,6 +110,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\LibrarianFolder\AddFolder\AdresPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\LibrarianFolder\AddFolder\AuthorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +123,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\LibrarianFolder\AddFolder\PublishingHousePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\LibrarianFolder\AddFolder\RegionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\LibrarianFolder\AddFolder\StreetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\LibrarianFolder\AddReaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\LibrarianFolder\EditBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

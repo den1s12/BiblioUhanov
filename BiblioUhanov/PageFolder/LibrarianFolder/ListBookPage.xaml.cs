@@ -45,12 +45,35 @@ namespace BiblioUhanov.PageFolder.LibrarianFolder
 
         private void EditM_Click(object sender, RoutedEventArgs e)
         {
-
+            VariableClass.IdBook = dGClass.SelectId();
+            NavigationService.Navigate(new EditBookPage());
+            dGClass.LoadDg("Select * From dbo.[Book]");
         }
 
         private void DeleteM_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ListBookDG_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (ListBookDG.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Вы не выбрали строку");
+            }
+            else
+            {
+                VariableClass.IdBook = dGClass.SelectId();
+                try
+                {
+                    NavigationService.Navigate(new EditBookPage());
+                    dGClass.LoadDg("Select * From dbo.[Book]");
+                }
+                catch (Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
+            }
         }
     }
 }

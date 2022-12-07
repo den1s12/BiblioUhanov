@@ -131,5 +131,89 @@ namespace BiblioUhanov.ClassFolder
                 sqlConnection.Close();
             }
         }
+
+        public void LoadAdresCB(ComboBox comboBox)
+        {
+            try
+            {
+                sqlConnection.Open();
+                sqlDataAdapter = new SqlDataAdapter("Select * From " +
+                    "dbo.Adres Order by IdAdres ASC", sqlConnection);
+                dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "Adres");
+                comboBox.ItemsSource =
+                    dataSet.Tables["Adres"].DefaultView;
+                comboBox.DisplayMemberPath =
+                    dataSet.Tables["Adres"].Columns["IndexAdres"].ToString();
+                comboBox.SelectedValuePath =
+                    dataSet.Tables["Adres"].Columns["IdAdres"].ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void LoadRegionCB(ComboBox comboBox)
+        {
+            try
+            {
+                sqlConnection.Open();
+                sqlDataAdapter = new SqlDataAdapter("Select * From " +
+                    "dbo.Region Order by IdRegion ASC", sqlConnection);
+                dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "Region");
+                comboBox.ItemsSource =
+                    dataSet.Tables["Region"].DefaultView;
+                comboBox.DisplayMemberPath =
+                    dataSet.Tables["Region"].Columns["NameRegion"].ToString();
+                comboBox.SelectedValuePath =
+                    dataSet.Tables["Region"].Columns["IdRegion"].ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void LoadStreetCB(ComboBox comboBox)
+        {
+            try
+            {
+                sqlConnection.Open();
+                sqlDataAdapter = new SqlDataAdapter("Select * From " +
+                    "dbo.Street Order by IdStreet ASC", sqlConnection);
+                dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "Street");
+                comboBox.ItemsSource =
+                    dataSet.Tables["Street"].DefaultView;
+                comboBox.DisplayMemberPath =
+                    dataSet.Tables["Street"].Columns["NameStreet"].ToString();
+                comboBox.SelectedValuePath =
+                    dataSet.Tables["Street"].Columns["IdStreet"].ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
     }
 }

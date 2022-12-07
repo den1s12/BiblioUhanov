@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:BiblioUhanov.PageFolder.LibrarianFolder"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddExemplarPage"
+      Title="Добавление экземпляра"
       Loaded="Page_Loaded">
 
     <Grid>
